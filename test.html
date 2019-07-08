@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div data-aos="fade-up"
+    data-aos-anchor-placement="top-center">
+    <h1>aaaaaa</h1>
+ </div>
+  <main>
+   <div class="wrapper">
+     <div style="background-image: url(https://cdn.shopify.com/s/files/1/0385/6229/files/banner_19e5b09e-2892-4a2a-b7ed-48cddf4502c3.png?v=1493161972);"></div>
+     <div style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTHnwynhMaEkxVgrsHh6nyAeRq6YcwPuFncMsJafk-0RfZ3rou);"></div>
+     <div style="background-image: url(https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2017/03/09123720/EDM-lights-EDC.jpg);"></div>
+   </div>
+  </main>
+  </body>
+  <script>
+        AOS.init();
+      </script>
+  <script>
+    $(function(){
+  $('.wrapper div:gt(0)').hide();
+  var interval = 6000,
+      anim = (function () {
+      var i = 0,
+          timing = interval / 1000 * 60;
+      return function () {
+          if (i % timing === 0) {
+              $('.wrapper div:first-child').fadeOut(2000).next('div').fadeIn(2000).end().appendTo('.wrapper');
+          }
+          i++;
+      };
+  })();
+  (function animloop() {
+      anim();
+      window.requestAnimationFrame(animloop);
+  })();
+});
+  </script>
+</html>
